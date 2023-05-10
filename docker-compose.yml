@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: ./../docker/Dockerfile.api.build
+    image: backend:express_4
+    ports:
+      - 8000:8000
+    tty: true
+  ui:
+    build:
+      context: ./frontend
+      dockerfile: ./../docker/Dockerfile.ui.build
+    image: frontend:angular_15
+    ports:
+      - 4200:80
+    tty: true
